@@ -1,6 +1,10 @@
 import React,{Component} from 'react'
 import {NavBar, WingBlank, List, WhiteSpace, InputItem, Radio, Button} from 'antd-mobile'
 {/*两边留白，和垂直方向的留白，文本*/}
+import {Redirect} from 'react-router-dom'
+import {}from 'react-redux'
+
+import  {register} from "../../redux/actions";
 import Logo from '../../componnets/logo/logo'
 
 const ListItem = List.Item
@@ -41,6 +45,7 @@ export default class Register extends Component{
         <Logo/>
         <WingBlank>
           <List>
+            {msg? <p className='error-msg'>{msg}</p> : null}
             <InputItem
               placeholder='请输入用户名'
               onChange={val=> this.handleChange('username', val)}
