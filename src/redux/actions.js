@@ -6,7 +6,7 @@
 
 import {
   reqRegister,
-  reqLogin
+  reqLogin,
   reqUpdateUser
 } from "../api/";
 import {
@@ -28,7 +28,7 @@ const resetUser = (msg) => ({type: RESET_USER, data: msg})
 
 // 注册的异步action
 
-export function register({username, password2, type}) {
+export function register({username, password, password2, type}) {
 
   // 前台表单验证
   if (!username) {
