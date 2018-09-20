@@ -63,7 +63,7 @@ export function register({username, password, password2, type}) {
 
       // 表单验证
       if(!username) {  // 必须分发一个同步action对象
-        return dispatch(errorMsg('必须指定用户名'))  // 因在异步action里面，此时 return代表结束，
+        return dispatch(errorMsg('必须指定用户名'))  // dispatch必须分发，因在异步action里面，此时 return代表结束，
       } else if (!password) {
         return dispatch(errorMsg('必须指定密码'))
       }

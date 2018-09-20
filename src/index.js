@@ -13,13 +13,14 @@ import Main from './containers/main/main'
 import store from './redux/store'
 
 import './assets/css/index.less'
+
 ReactDOM.render((
   <Provider store={store}>
     <HashRouter>
       <Switch>
         <Route path='/register' component={Register}/>
         <Route path='/login' component={Login}/>
-        <Route component={Main}/>
+        <Route component={Main}/>         {/*默认路由组件*/}
       </Switch>
     </HashRouter>
   </Provider>
