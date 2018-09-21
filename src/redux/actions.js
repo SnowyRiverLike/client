@@ -100,6 +100,36 @@ export function register({username, password, password2, type}) {
 
 }
 
+
+// 获取当前的用户的异步action
+export function getUser() {
+  return async dispatch => {
+    // 发ajax请求，获取user
+    const response =await reqUser()
+    const resul = response.data
+    // 分布同步的action
+   if (result.code===0) {
+      dispatch(receiveUser(resul.data))
+   }else {//失败
+      dispatch(resetUser(resul.msg))
+   }
+  }
+}
+
+
+// 获取异步的用户列表的异步action
+export function getUserlist(type) {
+  return async dispatch => {
+    const response = await resetUser(type)
+    const result =response.data
+    if (result.code===0) {
+         const userList = result.data
+          dispatch(receiveUser(userList))
+
+        }
+  }
+
+}
 // async和await
 // 1. 作用?
 //   简化promise的使用(不再使用.then来指定异步回调函数)
